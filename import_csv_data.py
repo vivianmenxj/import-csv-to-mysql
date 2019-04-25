@@ -35,7 +35,6 @@ def main():
         cur = sqlconn.cursor()
         record ={}
         print("Reading data from file...")
-        #with open('./contact_list.csv', newline='',encoding='utf-8') as f: 
         with open(os.path.split(os.path.realpath(__file__))[0] + "/" + csv_file, newline='',encoding='utf-8') as f:
         
             reader = csv.reader(f) 
@@ -94,7 +93,6 @@ def main():
 
 def get_conn(db_host,db_port,db_name,db_user,db_password,db_charset) : 
     conn = pymysql.connect(host=db_host, port=db_port, user=db_user, passwd=db_password, db=db_name, charset=db_charset) 
-   # conn = pymysql.connect(host="localhost",port=3306,user="root",passwd="password",db="customer",charset="utf8mb4")
     return conn
 
 def build_insert_sql(table, data, sqlconn):
