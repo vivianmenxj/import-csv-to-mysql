@@ -64,5 +64,6 @@ SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIK
 +--------------------------+--------------------+
 10 rows in set (0.00 sec)
 
-3. run the script to import the data to database:
+3. Modify the config file with your mysql configuration if needed.
+4. run the script to import the data to database:
    python3 import_csv_data.py
