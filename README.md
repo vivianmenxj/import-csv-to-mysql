@@ -9,6 +9,7 @@ and insert the data to related tables of customer database.
  pip3 install py-mysql
 
 1. Create database and tables using the following command:
+
 CREATE DATABASE customer;
 CREATE TABLE contact (
 id INT(11) NOT NULL AUTO_INCREMENT, title ENUM('Mr', 'Mrs', 'Miss', 'Ms', 'Dr'), first_name VARCHAR(64),
@@ -17,6 +18,7 @@ company_name VARCHAR(64), date_of_birth DATETIME,
 notes VARCHAR(255),
 PRIMARY KEY(id)
 );
+
 CREATE TABLE address (
 id INT(11) NOT NULL AUTO_INCREMENT, contact_id INT(11) NOT NULL,
 street1 VARCHAR(100),
@@ -26,6 +28,7 @@ city VARCHAR(64),
 post_code VARCHAR(16),
 PRIMARY KEY(id)
 );
+
 CREATE TABLE phone (
 id INT(11) NOT NULL AUTO_INCREMENT, contact_id INT(11) NOT NULL,
 name VARCHAR(64),
@@ -34,12 +37,17 @@ type ENUM('Home', 'Work', 'Mobile', 'Other'), PRIMARY KEY(id)
 );
 
 2.set the CHARACTER of the database and table as there is emoji in the notes column.
+
 SET NAMES utf8mb4;
+
 ALTER DATABASE customer CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci;
+
 ALTER TABLE contact  CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 Using the following command to verify the configuration:
-mysql> SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';
+
+SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';
+
 +--------------------------+--------------------+
 | Variable_name            | Value              |
 +--------------------------+--------------------+
